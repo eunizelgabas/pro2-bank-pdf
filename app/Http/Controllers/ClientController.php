@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Mail\BulkMail;
 use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request;;
 use Illuminate\Support\Facades\Mail;
 
 class ClientController extends Controller
@@ -87,4 +88,6 @@ class ClientController extends Controller
 
         return back();
     }
+
+
 }

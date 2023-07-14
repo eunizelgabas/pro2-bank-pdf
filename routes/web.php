@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/clients/pdf/{client}', [PdfController::class, 'clientSummary']);
     Route::get('/clients/email/{client}', [ClientController::class, 'email']);
     Route::resource('clients', ClientController::class);
+
+    Route::resource('admin', AdminController::class);
+    Route::post('/admin/send-email', [AdminController::class, 'bulkEmail']);
+
 });
 
 require __DIR__.'/auth.php';
